@@ -1,0 +1,47 @@
+{% extends "_base.html" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<main>
+    <section class="index-banner">
+        <div class="vertical-center">
+            <h2>Confectionery<br>Showcase</h2>
+            <h1>A Web-Development Project</h1>
+        </div>
+
+    </section>
+    <div class="wrapper">
+        <section class="index-links">
+            <a href="{% url 'dessert_list' %}">
+                <div class="index-boxlink-square">
+                    <h3>Desserts</h3>
+                </div>
+            </a>
+            <a href="{% url 'about' %}">
+                <div class="index-boxlink-rectangle">
+                    <h3>About</h3>
+                </div>
+            </a>
+            <a href="{% url 'about' %}">
+                <div class="index-boxlink-square">
+                    <h3>Contact</h3>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/macaron_byeva/">
+                <div class="index-boxlink-rectangle">
+                    <h3>Baker</h3>
+                </div>
+            </a>
+            <a href="{% url 'login' %}">
+                <div class="index-boxlink-square">
+                    <h3>Login</h3>
+                </div>
+                <a href="{% url 'signup' %}">
+                    <div class="index-boxlink-square">
+                        <h3>Signup</h3>
+                    </div>
+                </a>
+        </section>
+    </div>
+</main>
+
+{% endblock content %}

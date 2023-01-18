@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Confectionery{% endblock title %}</title>
+    <link rel="stylesheet" href="https://django-static-confect-1.s3.eu-north-1.amazonaws.com/static/css/style4.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="{% url 'home' %}" class="header-brand">Confectionery</a>
+        <nav>
+            <ul>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'about' %}">Contact</a></li>
+                <li> <a href="{% url 'dessert_list' %}">Desserts</a></li>
+
+            </ul>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="header-cases">Logout</a>
+            <a href="#" class="header-cases">Hi {{ user.username }}!</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="header-cases">Log In</a>
+            <a href="{% url 'signup' %}" class="header-cases">Sign Up</a>
+            {% endif %}
+            <form class="d-flex" action="{% url 'search_results' %}" method="get">
+                <input class="form-control" type="search" name="q" placeholder="Search desserts..." aria-label="Search">
+                <button class="header-cases" type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock content %}
+    <div class="wrapper">
+        <footer>
+            <ul class="footer-links-main">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'dessert_list' %}">Desserts</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="{% url 'about' %}">Contact</a></li>
+            </ul>
+            <ul class="footer-links-cases">
+                <li>
+                    <p>Latest desserts</p>
+                </li>
+                <li><a href="{% url 'dessert_list' %}">Dessert 1</a></li>
+                <li><a href="{% url 'dessert_list' %}">Dessert 2</a></li>
+                <li><a href="{% url 'dessert_list' %}">Dessert 3</a></li>
+                <li><a href="{% url 'dessert_list' %}">Dessert 4</a></li>
+            </ul>
+            <div class="footer-sm">
+                <a href="#">
+                    <img src="{% static 'images/github-mark-white.png' %}" alt="github icon">
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+
+</html>

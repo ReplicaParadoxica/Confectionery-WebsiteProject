@@ -1,0 +1,8 @@
+<h1>Search Results</h1>
+{% for dessert in dessert_list %}
+<div>
+    <h3><a href="{{ dessert.get_absolute_url }}">{{ dessert.title }}</a></h3>
+    <p>Author: {{ dessert.author }}</p>
+    <p>Price: $ {{ dessert.price }}</p>
+</div>
+{% endfor %}

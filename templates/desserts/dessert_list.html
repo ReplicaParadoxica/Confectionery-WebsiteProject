@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+{% block title %}Desserts{% endblock title %}
+{% block content %}
+{% for dessert in dessert_list %}
+<div class="wrapper">
+    <h2 class="dlisth2"><a class="dlista" href=" {{ dessert.get_absolute_url }}">{{ dessert.title }}</a></h2>
+</div>
+{% endfor %}
+<div class="Lspace"></div>
+{% endblock content %}
